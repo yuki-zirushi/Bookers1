@@ -84,17 +84,14 @@ Failures:
      [36m# ./spec/models/book_spec.rb:18:in `block (3 levels) in <top (required)>'[0m
 
   4) Book モデルに関するテスト titleを空白で投稿した場合に画面にエラーメッセージが表示されているか エラーメッセージは正しく表示されるか
-     [31mFailure/Error: <%= form_with model:book, local:true do |f| %>[0m
+     [31mFailure/Error: @book = Book.new(book_params)[0m
      [31m[0m
-     [31mActionView::Template::Error:[0m
-     [31m  undefined local variable or method `book' for #<#<Class:0x0000000007024200>:0x0000000007029d18>[0m
-     [31m  Did you mean?  @book[0m
-     [31m                 @books[0m
-     [36m# ./app/views/books/_form.html.erb:1:in `_app_views_books__form_html_erb___1490259988953505627_58929400'[0m
-     [36m# ./app/views/books/index.html.erb:27:in `_app_views_books_index_html_erb__86854642058994120_58795380'[0m
+     [31mActiveModel::UnknownAttributeError:[0m
+     [31m  unknown attribute 'title' for Book.[0m
+     [36m# ./app/controllers/books_controller.rb:11:in `create'[0m
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-2.2.3/lib/rack/tempfile_reaper.rb:15:in `call'[0m
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-2.2.3/lib/rack/etag.rb:27:in `call'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-2.2.3/lib/rack/conditional_get.rb:27:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-2.2.3/lib/rack/conditional_get.rb:40:in `call'[0m
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-2.2.3/lib/rack/head.rb:12:in `call'[0m
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-2.2.3/lib/rack/session/abstract/id.rb:266:in `context'[0m
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-2.2.3/lib/rack/session/abstract/id.rb:260:in `call'[0m
@@ -112,34 +109,29 @@ Failures:
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-test-1.1.0/lib/rack/mock_session.rb:29:in `request'[0m
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-test-1.1.0/lib/rack/test.rb:266:in `process_request'[0m
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-test-1.1.0/lib/rack/test.rb:129:in `custom_request'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-test-1.1.0/lib/rack/test.rb:58:in `get'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-test-1.1.0/lib/rack/test.rb:66:in `post'[0m
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rack_test/browser.rb:72:in `process'[0m
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rack_test/browser.rb:47:in `process_and_follow_redirects'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rack_test/browser.rb:24:in `visit'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rack_test/driver.rb:46:in `visit'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/session.rb:278:in `visit'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/dsl.rb:58:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/models/book_spec.rb:25:in `block (3 levels) in <top (required)>'[0m
-     [36m# ------------------[0m
-     [36m# --- Caused by: ---[0m
-     [36m# NameError:[0m
-     [36m#   undefined local variable or method `book' for #<#<Class:0x0000000007024200>:0x0000000007029d18>[0m
-     [36m#   Did you mean?  @book[0m
-     [36m#                  @books[0m
-     [36m#   ./app/views/books/_form.html.erb:1:in `_app_views_books__form_html_erb___1490259988953505627_58929400'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rack_test/browser.rb:36:in `submit'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rack_test/form.rb:43:in `submit'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rack_test/node.rb:75:in `click'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rack_test/node.rb:137:in `block (2 levels) in <class:Node>'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/element.rb:172:in `block in click'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/element.rb:597:in `block in perform_click_action'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/base.rb:83:in `synchronize'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/element.rb:597:in `perform_click_action'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/element.rb:171:in `click'[0m
+     [36m# ./spec/models/book_spec.rb:29:in `block (3 levels) in <top (required)>'[0m
 
   5) Book モデルに関するテスト bodyを空白で投稿した場合に画面にエラーメッセージが表示されているか エラーメッセージは正しく表示されるか
-     [31mFailure/Error: <%= form_with model:book, local:true do |f| %>[0m
+     [31mFailure/Error: @book = Book.new(book_params)[0m
      [31m[0m
-     [31mActionView::Template::Error:[0m
-     [31m  undefined local variable or method `book' for #<#<Class:0x0000000007024200>:0x00000000071da608>[0m
-     [31m  Did you mean?  @book[0m
-     [31m                 @books[0m
-     [36m# ./app/views/books/_form.html.erb:1:in `_app_views_books__form_html_erb___1490259988953505627_58929400'[0m
-     [36m# ./app/views/books/index.html.erb:27:in `_app_views_books_index_html_erb__86854642058994120_58795380'[0m
+     [31mActiveModel::UnknownAttributeError:[0m
+     [31m  unknown attribute 'title' for Book.[0m
+     [36m# ./app/controllers/books_controller.rb:11:in `create'[0m
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-2.2.3/lib/rack/tempfile_reaper.rb:15:in `call'[0m
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-2.2.3/lib/rack/etag.rb:27:in `call'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-2.2.3/lib/rack/conditional_get.rb:27:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-2.2.3/lib/rack/conditional_get.rb:40:in `call'[0m
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-2.2.3/lib/rack/head.rb:12:in `call'[0m
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-2.2.3/lib/rack/session/abstract/id.rb:266:in `context'[0m
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-2.2.3/lib/rack/session/abstract/id.rb:260:in `call'[0m
@@ -157,21 +149,19 @@ Failures:
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-test-1.1.0/lib/rack/mock_session.rb:29:in `request'[0m
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-test-1.1.0/lib/rack/test.rb:266:in `process_request'[0m
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-test-1.1.0/lib/rack/test.rb:129:in `custom_request'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-test-1.1.0/lib/rack/test.rb:58:in `get'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/rack-test-1.1.0/lib/rack/test.rb:66:in `post'[0m
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rack_test/browser.rb:72:in `process'[0m
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rack_test/browser.rb:47:in `process_and_follow_redirects'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rack_test/browser.rb:24:in `visit'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rack_test/driver.rb:46:in `visit'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/session.rb:278:in `visit'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/dsl.rb:58:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/models/book_spec.rb:35:in `block (3 levels) in <top (required)>'[0m
-     [36m# ------------------[0m
-     [36m# --- Caused by: ---[0m
-     [36m# NameError:[0m
-     [36m#   undefined local variable or method `book' for #<#<Class:0x0000000007024200>:0x00000000071da608>[0m
-     [36m#   Did you mean?  @book[0m
-     [36m#                  @books[0m
-     [36m#   ./app/views/books/_form.html.erb:1:in `_app_views_books__form_html_erb___1490259988953505627_58929400'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rack_test/browser.rb:36:in `submit'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rack_test/form.rb:43:in `submit'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rack_test/node.rb:75:in `click'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rack_test/node.rb:137:in `block (2 levels) in <class:Node>'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/element.rb:172:in `block in click'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/element.rb:597:in `block in perform_click_action'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/base.rb:83:in `synchronize'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/element.rb:597:in `perform_click_action'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/element.rb:171:in `click'[0m
+     [36m# ./spec/models/book_spec.rb:39:in `block (3 levels) in <top (required)>'[0m
 
   6) 投稿のテスト トップ画面(root_path)のテスト 表示の確認 トップ画面(root_path)に一覧ページへのリンクが表示されているか
      [31mFailure/Error: let!(:book) { create(:book,title:'hoge',body:'body') }[0m
@@ -610,7 +600,7 @@ Failures:
       [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/factory_bot-6.1.0/lib/factory_bot/strategy_syntax_method_registrar.rb:28:in `block in define_singular_strategy_method'[0m
       [36m# ./spec/system/books_spec.rb:4:in `block (2 levels) in <main>'[0m
 
-Finished in 0.19573 seconds (files took 1.09 seconds to load)
+Finished in 0.63023 seconds (files took 1.16 seconds to load)
 [31m28 examples, 28 failures[0m
 
 Failed examples:
